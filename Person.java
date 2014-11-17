@@ -1,9 +1,7 @@
-public class Person implements PersonQueue {
+public class Person {
 
 	private String name;
 	private Person next;
-	public static Person first = null;
-	public static Person last = null;
 
 	public Person(String name) {
 		this.name = name;
@@ -14,30 +12,14 @@ public class Person implements PersonQueue {
 		return name;
 	}
 
-	public void launch(Person person) {
+	public Person getNext() {
+		return next;
+	}
+	public void setNext(Person person) {
 		if (this.next == null) {
 			this.next = person;
-			first = this;
-			last = person;
 		} else {
-			System.out.println("Invalid entry.");
+			this.next.setNext(person);
 		}
 	}
-
-	public void insert(Person person) {
-		if (this.next == null) {
-			this.next = person;
-			last = person;
-		} else {
-			this.next.insert(person);
-		}
-	}
-
-	public Person retrieve() {
-		Person result = new Person(first.getName());
-		first = first.next;
-		return result;
-	}
-
-
 }
