@@ -37,4 +37,29 @@ public class SimpleMapImpl implements SimpleMap {
 		return empty;
 	}
 
+	public static void main(String[] args) {
+		SimpleMap myMap = new SimpleMapImpl(4);
+		if (myMap.isEmpty()) {
+			System.out.println("True.");
+		} else {
+			System.out.println("False.");
+		}
+		myMap.put(1, "Bob");
+		myMap.put(3, "Mary");
+		if (myMap.isEmpty()) {
+			System.out.println("True.");
+		} else {
+			System.out.println("False.");
+		}
+		System.out.println(myMap.get(1));
+		myMap.remove(1);
+		myMap.remove(3);
+		if (myMap.isEmpty()) {
+			System.out.println("True.");
+		} else {
+			System.out.println("False.");
+		}
+
+
+	}
 }
